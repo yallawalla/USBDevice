@@ -1,7 +1,7 @@
 #include <string.h>
 #include "msc_if.h"
 
-HAL_StatusTypeDef	FLASH_Program(uint32_t Address, uint32_t Data) {
+__weak	HAL_StatusTypeDef	FLASH_Program(uint32_t Address, uint32_t Data) {
 			HAL_StatusTypeDef status;
 			__HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_OPERR  | FLASH_FLAG_WRPERR | FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR );
 			if(*(uint32_t *)Address !=  Data) {
@@ -26,7 +26,7 @@ typedef  unsigned int	 DWORD;
 #define	SECTOR_COUNT		(int)(PAGE_SIZE*PAGE_COUNT/(SECTOR_SIZE+4))
 #define FATFS_ADDRESS		0x8040000
 
-USBD_ReturnType USER_read (
+__weak	USBD_ReturnType USER_read (
 	BYTE pdrv,      /* Physical drive nmuber to identify the drive */
 	BYTE *buff,     /* Data buffer to store read data */
 	DWORD sector,   /* Sector address in LBA */
@@ -61,7 +61,7 @@ USBD_ReturnType USER_read (
   * @param  count: Number of sectors to write (1..128)
   * @retval DRESULT: Operation result
   */
-USBD_ReturnType USER_write (
+__weak	USBD_ReturnType USER_write (
 	BYTE pdrv,          /* Physical drive nmuber to identify the drive */
 	const BYTE *buff,   /* Data to be written */
 	DWORD sector,       /* Sector address in LBA */

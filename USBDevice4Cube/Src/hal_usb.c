@@ -55,7 +55,7 @@ void HAL_USBD_Setup(void)
 
 void OTG_FS_IRQHandler(void);
 
-void OTG_FS_IRQHandler(void)
+__weak	void OTG_FS_IRQHandler(void)
 {
     USB_vIRQHandler(UsbDevice);
 }
