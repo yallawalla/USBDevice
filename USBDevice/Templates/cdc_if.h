@@ -10,8 +10,7 @@
 
 #include <usbd_cdc.h>
 
-extern		USBD_CDC_IfHandleType *const cdc_if;
-
+extern		bool	VCP_Ready;
 void			VCP_Init(void), VCP_DeInit(void);
 void			VCP_Receive(uint8_t *, uint16_t);
 void 			VCP_Transmit(uint8_t *, uint16_t);

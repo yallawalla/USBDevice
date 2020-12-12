@@ -53,9 +53,10 @@ void HAL_USBD_Setup(void)
     UsbDevice->Callbacks.DepDeinit = HAL_USB_OTG_FS_MspDeInit;
 }
 
+#ifndef __LIB__
 void OTG_FS_IRQHandler(void);
-
-__weak	void OTG_FS_IRQHandler(void)
+void OTG_FS_IRQHandler(void)
 {
     USB_vIRQHandler(UsbDevice);
 }
+#endif

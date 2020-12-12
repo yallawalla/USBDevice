@@ -7,6 +7,13 @@
 #include <string.h>
 #include "cdc_if.h"
 
+__weak	void	VCP_Init(void) {};
+__weak	void	VCP_DeInit(void) {};
+__weak	void	VCP_Receive(uint8_t *pbuf, uint16_t length) {
+							VCP_Transmit(pbuf, length);
+							}
+
+
 bool		VCP_Ready=false;
 static	uint8_t rxbuf[128];
 
