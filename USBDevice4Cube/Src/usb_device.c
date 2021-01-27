@@ -65,7 +65,7 @@ void UsbDevice_Init(void)
 {
     msc_if->Config.InEpNum  = 0x81;
     msc_if->Config.OutEpNum = 0x01;
-		msc_if->Config.MaxLUN = 0;
+		msc_if->Config.MaxLUN = 1;
     USBD_MSC_MountInterface(msc_if, UsbDevice);
 
     cdc_if->Config.InEpNum  = 0x82;

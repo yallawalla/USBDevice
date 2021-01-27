@@ -12,4 +12,19 @@
 
 extern USBD_MSC_IfHandleType *const msc_if;
 
+USBD_ReturnType Read_dev (uint8_t, uint8_t *, uint32_t, uint16_t);
+USBD_ReturnType Write_dev (uint8_t, uint8_t *, uint32_t, uint16_t);
+void Init_dev(uint8_t);
+void DeInit_dev(uint8_t);
+
+#define	SECTOR_SIZE		512
+#define _RAM					((uint8_t *)0x10000000)
+
+
+USBD_ReturnType disk_initialize (uint8_t);
+USBD_ReturnType disk_status (uint8_t);
+USBD_ReturnType disk_read		(uint8_t, uint8_t *, uint32_t, uint32_t);
+USBD_ReturnType disk_write	(uint8_t, uint8_t *, uint32_t, uint32_t);
+USBD_ReturnType disk_ioctl	(uint8_t, uint8_t , void *);
+
 #endif /* MSC_IF_H_ */
