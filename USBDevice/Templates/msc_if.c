@@ -28,6 +28,7 @@ void Init_dev(uint8_t lun) {
 	else
 		memcpy(_RAM,ramFmt,sizeof(ramFmt));
 }
+
 void DeInit_dev(uint8_t lun) {
 }
 
@@ -91,3 +92,16 @@ USBD_MSC_IfHandleType hmsc_if = {
 	.Base.AltCount = 1,
 	.LUs=msc_lu,
 }, *const msc_if = &hmsc_if;
+
+
+__weak	USBD_ReturnType disk_initialize (uint8_t lun) {
+	Init_dev(0);
+	return USBD_E_OK;
+}
+__weak	USBD_ReturnType disk_read(uint8_t lun, uint8_t *dest, uint32_t blockAddr, uint32_t blockLen) {
+	return Read_dev(0,dest,blockAddr,blockLen);
+}
+__weak	USBD_ReturnType disk_write	(uint8_t lun, uint8_t *dest, uint32_t blockAddr, uint32_t blockLen) {
+	return Write_dev(0,dest,blockAddr,blockLen);
+}
+
