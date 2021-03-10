@@ -943,7 +943,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F405xx,__LIB__</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;   ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;   ../Drivers/CMSIS/Include;   ..\..\USBDevice4Cube\Inc;   ..\..\USBDevice\Include;   ..\..\USBDevice4Cube\XPD_USB;   ..\..\USBDevice\Templates;   ..\..\USBDevice\PDs\STM32_XPD</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\..\USBDevice4Cube\Inc;..\..\USBDevice\Include;..\..\USBDevice4Cube\XPD_USB;..\..\USBDevice\Templates;..\..\USBDevice\PDs\STM32_XPD</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
