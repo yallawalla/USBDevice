@@ -10,9 +10,9 @@
 
 #include <usbd_cdc.h>
 
-extern		bool	VCP_Ready;
-void			VCP_Init(void), VCP_DeInit(void);
-void			VCP_Receive(uint8_t *, uint16_t);
-void 			VCP_Transmit(uint8_t *, uint16_t);
+extern		bool	cdcReady;
+void			cdcInit(void), cdcDeInit(void);
+void			cdcReceive(uint8_t *, uint16_t);
+void 			cdcTransmit(uint8_t *, uint16_t);
 	
 #endif /* MSC_IF_H_ */

@@ -7,30 +7,30 @@
 #include <string.h>
 #include "cdc_if.h"
 
-__weak	void	VCP_Init(void) {};
-__weak	void	VCP_DeInit(void) {};
-__weak	void	VCP_Receive(uint8_t *pbuf, uint16_t length) {
-							VCP_Transmit(pbuf, length);
+__weak	void	cdcInit(void) {};
+__weak	void	cdcDeInit(void) {};
+__weak	void	cdcReceive(uint8_t *pbuf, uint16_t length) {
+								cdcTransmit(pbuf, length);
 							}
 
 
-bool		VCP_Ready=false;
+bool		cdcReady=false;
 static	uint8_t rxbuf[128];
 
 void vcp_data_ready(void* itf, uint8_t * pbuf, uint16_t length) {
 		USBD_CDC_Receive(itf, rxbuf, length);
-		VCP_Receive(rxbuf,length);
+		cdcReceive(rxbuf,length);
 }
 void vcp_data_sent(void* itf, uint8_t * pbuf, uint16_t length) {
-		VCP_Ready=true;
+		cdcReady=true;
 }
 void vcp_open(void* itf, USBD_CDC_LineCodingType *p) {
-		VCP_Init();
+		cdcInit();
 		USBD_CDC_Receive(itf, rxbuf, 128);
-		VCP_Ready=true;
+		cdcReady=true;
 }
 void vcp_close(void* itf) {
-		VCP_DeInit();
+		cdcDeInit();
 }
 
 static const USBD_CDC_AppType console_app =
@@ -48,8 +48,8 @@ USBD_CDC_IfHandleType hcdc_if = {
 },	*const cdc_if = &hcdc_if;
 
 
-void VCP_Transmit(uint8_t * pbuf, uint16_t length) {
-		VCP_Ready=false;
+void cdcTransmit(uint8_t * pbuf, uint16_t length) {
+		cdcReady=false;
 		USBD_CDC_Transmit(cdc_if,pbuf, length);
 }
 
