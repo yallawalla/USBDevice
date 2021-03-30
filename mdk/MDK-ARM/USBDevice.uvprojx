@@ -337,7 +337,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>USE_HAL_DRIVER,STM32F405xx</Define>
+              <Define>USE_HAL_DRIVER,STM32F405xx,_USE_RAMDRIVE</Define>
               <Undefine></Undefine>
               <IncludePath>../Core/Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;   ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;   ../Drivers/CMSIS/Include;   ..\..\USBDevice4Cube\Inc;   ..\..\USBDevice\Include;   ..\..\USBDevice4Cube\XPD_USB;   ..\..\USBDevice\Templates;   ..\..\USBDevice\PDs\STM32_XPD</IncludePath>
             </VariousControls>

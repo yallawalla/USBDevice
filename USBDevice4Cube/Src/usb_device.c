@@ -65,7 +65,11 @@ void UsbDevice_Init(void)
 {
     msc_if->Config.InEpNum  = 0x81;
     msc_if->Config.OutEpNum = 0x01;
+#ifdef _USE_RAMDRIVE	
 		msc_if->Config.MaxLUN = 1;
+#else
+		msc_if->Config.MaxLUN = 0;
+#endif
     USBD_MSC_MountInterface(msc_if, UsbDevice);
 
     cdc_if->Config.InEpNum  = 0x82;
