@@ -115,13 +115,13 @@ USBD_MSC_IfHandleType hmsc_if = {
 
 
 __weak	USBD_ReturnType disk_initialize (uint8_t lun) {
-	Init_dev(0);
+	Init_dev(1);
 	return USBD_E_OK;
 }
 __weak	USBD_ReturnType disk_read(uint8_t lun, uint8_t *dest, uint32_t blockAddr, uint16_t blockLen) {
-	return Read_dev(0,dest,blockAddr,blockLen);
+	return Read_dev(1,dest,blockAddr,blockLen);
 }
 __weak	USBD_ReturnType disk_write	(uint8_t lun, uint8_t *dest, uint32_t blockAddr, uint16_t blockLen) {
-	return Write_dev(0,dest,blockAddr,blockLen);
+	return Write_dev(1,dest,blockAddr,blockLen);
 }
 

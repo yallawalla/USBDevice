@@ -23,6 +23,7 @@
 #include <usb_device.h>
 #include <usbd_cdc.h>
 #include <usbd_msc.h>
+#include <usbd_ncm.h>
 /*
 #define USBD_VID     1155
 #define USBD_LANGID_STRING     1033
@@ -60,21 +61,44 @@ USBD_HandleType hUsbDevice, *const UsbDevice = &hUsbDevice;
 
 extern USBD_CDC_IfHandleType *const cdc_if;
 extern USBD_MSC_IfHandleType *const msc_if;
+extern USBD_NCM_IfHandleType *const ncm_usb_if;
+
+//    ncm_usb_if->Config.InEpNum = 0x81;
+//    ncm_usb_if->Config.OutEpNum = 0x01;
+//    ncm_usb_if->Config.NotEpNum = 0x82;
+
+//    USBD_NCM_MountInterface(ncm_usb_if, usbd);
+
+//    console_if->Config.InEpNum = 0x83;
+//    console_if->Config.OutEpNum = 0x03;
+//    console_if->Config.NotEpNum = 0x84;
+
+//    USBD_CDC_MountInterface(console_if, usbd);
+
+//    /* Initialize the device */
+//    USBD_Init(usbd, dev_cfg);
+
+
 
 void UsbDevice_Init(void)
 {
-    msc_if->Config.InEpNum  = 0x81;
-    msc_if->Config.OutEpNum = 0x01;
-#ifdef _USE_RAMDRIVE	
-		msc_if->Config.MaxLUN = 1;
-#else
-		msc_if->Config.MaxLUN = 0;
-#endif
-    USBD_MSC_MountInterface(msc_if, UsbDevice);
+//    msc_if->Config.InEpNum  = 0x81;
+//    msc_if->Config.OutEpNum = 0x01;
+//#ifdef _USE_RAMDRIVE	
+//		msc_if->Config.MaxLUN = 1;
+//#else
+//		msc_if->Config.MaxLUN = 0;
+//#endif
+//    USBD_MSC_MountInterface(msc_if, UsbDevice);
 
-    cdc_if->Config.InEpNum  = 0x82;
-    cdc_if->Config.OutEpNum = 0x02;
-    cdc_if->Config.NotEpNum = 0x83;
+    ncm_usb_if->Config.InEpNum = 0x81;
+    ncm_usb_if->Config.OutEpNum = 0x01;
+    ncm_usb_if->Config.NotEpNum = 0x82;
+    USBD_NCM_MountInterface(ncm_usb_if, UsbDevice);
+
+    cdc_if->Config.InEpNum  = 0x83;
+    cdc_if->Config.OutEpNum = 0x03;
+    cdc_if->Config.NotEpNum = 0x84;
     USBD_CDC_MountInterface(cdc_if, UsbDevice);
 
 

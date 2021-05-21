@@ -23,6 +23,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "usb_device.h"
+#include <lwip/init.h>
+#include <ncm_netif.h>
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,6 +91,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   HAL_USBD_Setup();
+	lwip_init();
+	ncm_netif_init();
   UsbDevice_Init();
 
   /* USER CODE END 2 */

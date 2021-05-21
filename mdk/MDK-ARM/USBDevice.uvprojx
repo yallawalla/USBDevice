@@ -322,7 +322,7 @@
             <PlainCh>0</PlainCh>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
-            <wLevel>3</wLevel>
+            <wLevel>1</wLevel>
             <uThumb>0</uThumb>
             <uSurpInc>0</uSurpInc>
             <uC99>1</uC99>
@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F405xx,_USE_RAMDRIVE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;   ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;   ../Drivers/CMSIS/Include;   ..\..\USBDevice4Cube\Inc;   ..\..\USBDevice\Include;   ..\..\USBDevice4Cube\XPD_USB;   ..\..\USBDevice\Templates;   ..\..\USBDevice\PDs\STM32_XPD</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include;..\..\USBDevice4Cube\Inc;..\..\USBDevice\Include;..\..\USBDevice4Cube\XPD_USB;..\..\USBDevice\Templates;..\..\USBDevice\PDs\STM32_XPD;..\..\..\lwip\src\include;..\..\..\lwip\IDE</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -578,6 +578,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\USBDevice\Templates\cdc_if.c</FilePath>
             </File>
+            <File>
+              <FileName>ncm_netif.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\USBDevice\Templates\ncm_netif.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -587,6 +592,11 @@
               <FileName>usbd_cdc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\USBDevice\Class\CDC\usbd_cdc.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_ncm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\USBDevice\Class\CDC\usbd_ncm.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -602,6 +612,16 @@
               <FileName>usbd_msc_scsi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\USBDevice\Class\MSC\usbd_msc_scsi.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>libs</GroupName>
+          <Files>
+            <File>
+              <FileName>..\..\Users\Mocnik\Documents\lwip\IDE\Objects\lwip.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>$TC_ROOT$\..\..\Users\Mocnik\Documents\lwip\IDE\Objects\lwip.lib</FilePath>
             </File>
           </Files>
         </Group>
@@ -1233,6 +1253,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\USBDevice\Templates\cdc_if.c</FilePath>
             </File>
+            <File>
+              <FileName>ncm_netif.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\USBDevice\Templates\ncm_netif.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1242,6 +1267,11 @@
               <FileName>usbd_cdc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\USBDevice\Class\CDC\usbd_cdc.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbd_ncm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\USBDevice\Class\CDC\usbd_ncm.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1257,6 +1287,16 @@
               <FileName>usbd_msc_scsi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\USBDevice\Class\MSC\usbd_msc_scsi.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>libs</GroupName>
+          <Files>
+            <File>
+              <FileName>..\..\Users\Mocnik\Documents\lwip\IDE\Objects\lwip.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>$TC_ROOT$\..\..\Users\Mocnik\Documents\lwip\IDE\Objects\lwip.lib</FilePath>
             </File>
           </Files>
         </Group>
