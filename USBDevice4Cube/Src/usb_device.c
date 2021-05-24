@@ -63,27 +63,10 @@ extern USBD_CDC_IfHandleType *const cdc_if;
 extern USBD_MSC_IfHandleType *const msc_if;
 extern USBD_NCM_IfHandleType *const ncm_usb_if;
 
-//    ncm_usb_if->Config.InEpNum = 0x81;
-//    ncm_usb_if->Config.OutEpNum = 0x01;
-//    ncm_usb_if->Config.NotEpNum = 0x82;
-
-//    USBD_NCM_MountInterface(ncm_usb_if, usbd);
-
-//    console_if->Config.InEpNum = 0x83;
-//    console_if->Config.OutEpNum = 0x03;
-//    console_if->Config.NotEpNum = 0x84;
-
-//    USBD_CDC_MountInterface(console_if, usbd);
-
-//    /* Initialize the device */
-//    USBD_Init(usbd, dev_cfg);
-
-
-
 void UsbDevice_Init(void)
 {
-//    msc_if->Config.InEpNum  = 0x81;
-//    msc_if->Config.OutEpNum = 0x01;
+//    msc_if->Config.InEpNum  = 0x85;
+//    msc_if->Config.OutEpNum = 0x05;
 //#ifdef _USE_RAMDRIVE	
 //		msc_if->Config.MaxLUN = 1;
 //#else
@@ -100,10 +83,9 @@ void UsbDevice_Init(void)
     cdc_if->Config.OutEpNum = 0x03;
     cdc_if->Config.NotEpNum = 0x84;
     USBD_CDC_MountInterface(cdc_if, UsbDevice);
-
-
+	
 		USBD_Init(UsbDevice, msc_dev_cfg);
-    USBD_Connect(UsbDevice);
+
 }
 
 void UsbDevice_DeInit(void)

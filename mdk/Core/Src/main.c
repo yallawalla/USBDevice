@@ -24,7 +24,9 @@
 /* USER CODE BEGIN Includes */
 #include "usb_device.h"
 #include <lwip/init.h>
+#include <lwip/timeouts.h>
 #include <ncm_netif.h>
+#include <httpd.h>
 
 /* USER CODE END Includes */
 
@@ -94,6 +96,10 @@ int main(void)
 	lwip_init();
 	ncm_netif_init();
   UsbDevice_Init();
+	
+	httpd_init();
+	 
+	USBD_Connect(UsbDevice);
 
   /* USER CODE END 2 */
 
@@ -101,6 +107,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+		ncm_netif_process();
+		sys_check_timeouts();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

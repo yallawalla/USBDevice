@@ -310,7 +310,7 @@ void ncm_netif_init(void)
 
     /* Start DHCP server with next address */
     ip4_addr_set_u32(&dhcp_ip4, ip_addr_get_ip4_u32(&ncm_if_ipaddr) + lwip_htonl(1));
-//    dhcp_server_init(&ncm_netif->netif, &dhcp_ip4, 5);
+    dhcp_server_init(&ncm_netif->netif, &dhcp_ip4, 5);
     netif_set_up(&ncm_netif->netif);
 
 #if (NO_SYS == 0)
